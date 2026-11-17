@@ -1,1 +1,1 @@
-"""quotaflow baseline (single-responsibility pipeline)."""
+"""quotaflow package (single-responsibility pipeline)."""
