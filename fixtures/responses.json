@@ -1,0 +1,192 @@
+[
+  {
+    "src": "alpha",
+    "payload": {
+      "schema": "v2",
+      "data": {
+        "records": [
+          {
+            "id": "a-100",
+            "name": " Alpha Widget ",
+            "value": 100,
+            "status": "active",
+            "ts": "2026-11-01T08:00:00+08:00",
+            "color": "azure",
+            "region": "cn-east"
+          },
+          {
+            "id": "a-101",
+            "name": "Alpha Gadget",
+            "value": null,
+            "status": "enabled",
+            "ts": "2026-11-02T00:30:00Z"
+          },
+          {
+            "name": "Nameless Part",
+            "value": 7,
+            "status": "active",
+            "ts": "2026-11-03T12:00:00Z",
+            "lot": "L-77"
+          }
+        ]
+      },
+      "meta": {"etag": "\"a-etag-1\"", "updated_at": "2026-11-03T12:05:00Z"},
+      "page": {"index": 0, "next_cursor": "alpha-cursor-page1", "has_more": true, "size": 3}
+    }
+  },
+  {
+    "src": "alpha",
+    "payload": {
+      "schema": "v2",
+      "data": {
+        "records": [
+          {
+            "id": "a-102",
+            "name": "Alpha Gizmo",
+            "value": 200,
+            "status": "sold",
+            "ts": "2026-11-04T09:15:00+05:30"
+          },
+          {
+            "id": "a-102",
+            "name": "Alpha Gizmo",
+            "value": 200,
+            "status": "sold",
+            "ts": "2026-11-04T09:15:00+05:30"
+          },
+          {
+            "id": "a-103",
+            "name": "Alpha Oddity",
+            "value": 9,
+            "status": "weird-state",
+            "ts": "2026-11-05T00:00:00Z"
+          }
+        ]
+      },
+      "meta": {"etag": "W/\"a-etag-2\"", "updated_at": "2026-11-05T10:00:00Z"},
+      "page": {"index": 1, "next_cursor": null, "has_more": false, "size": 3}
+    }
+  },
+  {
+    "src": "alpha",
+    "payload": {
+      "schema": "v1.7",
+      "data": {
+        "records": [
+          {
+            "id": "a-legacy-1",
+            "name": "Legacy Alpha",
+            "value": 55,
+            "status": "active",
+            "ts": "2026-10-30T18:30:00+05:30"
+          }
+        ]
+      },
+      "page": {"index": 0, "next_cursor": "legacy-token", "has_more": true, "size": 1}
+    }
+  },
+  {
+    "src": "beta",
+    "payload": {
+      "error": {"code": "rate_limited", "message": "too many requests"},
+      "pagination": {"page_no": 0, "next": "beta-token-1", "more": true, "per_page": 2}
+    }
+  },
+  {
+    "src": "beta",
+    "payload": {
+      "ver": "v2",
+      "payload": {
+        "items": [
+          {
+            "rid": "b-200",
+            "title": "Beta Item",
+            "amount": "42",
+            "state": "closed",
+            "changed_at": "2026-11-06 11:30:00",
+            "record_etag": "W/b-rec-200-v3"
+          },
+          {
+            "rid": "b-201",
+            "title": "Beta Second",
+            "amount": 12,
+            "state": "active",
+            "changed_at": 1893456000000
+          }
+        ]
+      },
+      "etag": "beta-etag-9",
+      "updated_at": "2026-11-06T12:00:00Z",
+      "pagination": {"page_no": 1, "next": "beta-token-2", "more": true, "per_page": 2}
+    }
+  },
+  {
+    "src": "beta",
+    "payload": {
+      "ver": "v2",
+      "payload": {"items": []},
+      "etag": "beta-etag-empty",
+      "updated_at": "2026-11-07T00:00:00Z",
+      "pagination": {"page_no": 2, "next": null, "more": false, "per_page": 2}
+    }
+  },
+  {
+    "src": "gamma",
+    "payload": {
+      "schema_ver": "v2",
+      "result": {"data": []},
+      "headers": {"etag": "", "last_modified": null},
+      "paging": {"page": 0, "cursor": null, "has_next": false, "limit": 50}
+    }
+  },
+  {
+    "src": "delta",
+    "payload": {
+      "version": "v2",
+      "entries": [
+        {
+          "resource_id": "d-300",
+          "display_name": "Delta Live",
+          "metric": 3,
+          "state": "active",
+          "observed_at": "2026-11-08T06:00:00Z",
+          "tombstoned": false
+        },
+        {
+          "resource_id": "d-301",
+          "display_name": "Delta Gone",
+          "metric": 0,
+          "state": "inactive",
+          "observed_at": "2026-11-08T07:00:00Z",
+          "tombstoned": true
+        },
+        {
+          "resource_id": "d-302",
+          "display_name": "Delta String Metric",
+          "metric": "oops",
+          "state": "disabled",
+          "observed_at": "2026-11-08T08:00:00Z"
+        }
+      ],
+      "etag": "delta-etag-1",
+      "revision_time": "2026-11-08T08:30:00Z",
+      "page_no": 0,
+      "next_page_token": "delta-page1",
+      "has_next": true,
+      "page_size": 3
+    }
+  },
+  {
+    "src": "epsilon",
+    "payload": {
+      "schema": "v9.1",
+      "data": {"records": [{"id": "e-900", "name": "Future Thing", "value": 1}]},
+      "page": {"index": 0, "next_cursor": "eps-future", "has_more": true, "size": 1}
+    }
+  },
+  {
+    "src": "zeta",
+    "payload": "not-a-json-object-at-all",
+    "_note": "传输层已解析但内容形态不可识别（字符串而非信封）"
+  }
+]
