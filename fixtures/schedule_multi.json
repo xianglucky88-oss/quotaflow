@@ -1,0 +1,41 @@
+{
+  "_comment": "多机构调度夹具：交替注入长期失败、部分完成与额度用尽，用于比较重启前后的任务顺序、完成覆盖与请求量。timeline 按“每个机构的第 N 次派发”注入，不受其他机构挤占影响。",
+  "now": 1000000.0,
+  "day": "2026-11-18",
+  "budget": {
+    "limit": 12
+  },
+  "config": {
+    "starvation_rounds": 3,
+    "warn_window": 7200,
+    "critical_window": 1800,
+    "round_seconds": 5,
+    "max_per_source": 1,
+    "default_batch_limit": 5
+  },
+  "sources": [
+    {"name": "alpha", "priority": 10, "batch_limit": 5, "deadline": 1007200,
+     "max_consecutive_failures": 2, "backoff_base": 10, "backoff_cap": 60,
+     "quarantine_base": 120, "quarantine_cap": 600},
+    {"name": "beta", "priority": 5, "batch_limit": 5, "reserve": 2},
+    {"name": "gamma", "priority": 2, "batch_limit": 5, "deadline": 1000600}
+  ],
+  "cursors": {
+    "alpha": {"committed": 0, "head": 20},
+    "beta": {"committed": 0, "head": 20},
+    "gamma": {"committed": 0, "head": 20}
+  },
+  "timeline": {
+    "alpha": [
+      {"attempt": 1, "outcome": "fail", "detail": "upstream 503"},
+      {"attempt": 2, "outcome": "fail", "detail": "upstream 503"}
+    ],
+    "beta": [
+      {"attempt": 2, "outcome": "partial", "advance": 2},
+      {"attempt": 5, "outcome": "fail", "detail": "timeout"}
+    ],
+    "gamma": [
+      {"attempt": 2, "outcome": "partial", "advance": 3}
+    ]
+  }
+}
